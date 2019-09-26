@@ -1,0 +1,42 @@
+<html>
+<head>
+   <style></style>
+</head>
+
+<body>
+    <h1>Acme Employee DOM</h1>
+<div id='Acme Employee DOM'>Choose your three favourite employees:</div>  
+<div id='employeeDiv'></div>
+</body>
+<script>
+
+const employees = [
+    { id: 1, name: 'moe'},
+    { id: 2, name: 'larry'},
+    { id: 4, name: 'shep'},
+    { id: 3, name: 'curly'},
+    { id: 5, name: 'groucho'},
+    { id: 6, name: 'harpo'},
+    { id: 8, name: 'shep Jr.'},
+    { id: 99, name: 'lucy'}
+  ];
+  let favs = []
+  const buttonList = employees.map(employee => {
+      const employeeButton = document.createElement('button')
+      employeeButton.innerHTML = employee.name
+      //employeeButton.id = 
+      employeeButton.addEventListener('click', (ev)=> {
+          // make a check on a flag that is true meaning its a 
+          //second click on same button., remove from array that button thats clicked
+        if (favs.length <= 3) {
+            favs.push(employee.id)
+        }else {
+            alert('Sorry, only 3 favourite employees are allowed!!!')
+        }
+      })
+      let employeeDiv = document.querySelector('#employeeDiv')
+      employeeDiv.appendChild(employeeButton)
+
+  })
+</script>
+</html>
