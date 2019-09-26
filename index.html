@@ -1,12 +1,29 @@
 <html>
 <head>
-   <style></style>
+   <style>
+    #employeeDiv {
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        border: solid 1px black;
+        margin: 20px;
+        width: 100vw - 40px;
+    }
+    button {
+        padding: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 20px;
+    }
+    </style>
 </head>
 
 <body>
     <h1>Acme Employee DOM</h1>
-<div id='Acme Employee DOM'>Choose your three favourite employees:</div>  
-<div id='employeeDiv'></div>
+<div>Choose your three favourite employees:</div>  
+    <div id='employeeDiv'></div>
 </body>
 <script>
 
@@ -28,14 +45,17 @@ const employees = [
       employeeButton.addEventListener('click', (ev)=> {
           // make a check on a flag that is true meaning its a 
           //second click on same button., remove from array that button thats clicked
-        if (favs.length <= 3) {
+
+        if (favs.length < 3) {
             favs.push(employee.id)
+            console.log('favorites',favs)
         }else {
             alert('Sorry, only 3 favourite employees are allowed!!!')
         }
       })
       let employeeDiv = document.querySelector('#employeeDiv')
       employeeDiv.appendChild(employeeButton)
+
 
   })
 </script>
